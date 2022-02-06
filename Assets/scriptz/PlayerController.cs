@@ -34,16 +34,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            print("got jump");
-
-            rb.AddForce(0, jumpForce, 0);
+           
+            rb.AddForce(0, jumpForce, 0, ForceMode.Impulse);
         }
 
 
 
     }
 
-    bh vgcxc
 
 
     private void FixedUpdate()
@@ -55,11 +53,6 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.velocity = new Vector3(xInput * runSpeed, rb.velocity.y, zInput*ogSpeed);
-    }
-
-    private void Jump()
-    {
-        
     }
 
 
