@@ -9,11 +9,11 @@ public class Portal : MonoBehaviour {
     public Portal Sibling;
 
     // sebastian understands this one but I don't really
-    public MeshRenderer screen;
+    private MeshRenderer screen;
     
     // the linked cameras
     private Camera PlayerCam;
-    public Camera SiblingCam;
+    private Camera SiblingCam;
 
     // render texture which contains the view of the sibling cam
     private RenderTexture viewTexture;
@@ -25,13 +25,19 @@ public class Portal : MonoBehaviour {
     void Awake() {
         // always gets the selected camera :)
         PlayerCam = Camera.main;
-        /*try {
-            // hardcoded location of portal camera
-            SiblingCam = (Camera)transform.root.Find("PortalViewer").gameObject.GetComponent("Camera");
+
+        screen = gameObject.GetComponent<MeshRenderer>();
+
+        int target_viewer = 2;
+        int target_sibling = 1;
+        if (gameObject.transform.parent.gameObject.name == "Portal 2") {
+            target_viewer = 3;
+            target_sibling = 0;
         }
-        catch (InvalidCastException) {
-            Debug.LogError($"PortalViewer camera not found by {this}");
-        }*/
+
+        SiblingCam = transform.root.GetChild(target_viewer).gameObject.GetComponent<Camera>();
+
+        Sibling = transform.root.GetChild(target_sibling).GetChild(1).gameObject.GetComponent<Portal>();
     }
 
 
