@@ -45,7 +45,7 @@ Shader "Unlit/Portal"
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 // instead of using TRANSFORM_TEX on v.uv to get uv, we do ComputeScreenPos
-                o.screenPos = ComputeScreenPos(o.vertex)
+                o.screenPos = ComputeScreenPos(o.vertex);
                 //UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
