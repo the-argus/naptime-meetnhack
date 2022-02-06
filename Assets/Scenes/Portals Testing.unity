@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -313,6 +313,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188812513}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &282273030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 282273031}
+  - component: {fileID: 282273032}
+  m_Layer: 0
+  m_Name: PortalViewer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &282273031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282273030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3400002, y: 0, z: -5.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1308764996}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &282273032
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282273030}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &428094388
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1052,7 @@ Transform:
   - {fileID: 1580670577}
   - {fileID: 1708283480}
   - {fileID: 1893969846}
+  - {fileID: 282273031}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1089,9 +1164,10 @@ GameObject:
   - component: {fileID: 1472595986}
   - component: {fileID: 1472595985}
   - component: {fileID: 1472595984}
+  - component: {fileID: 1472595987}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1118,7 +1194,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472595982}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1172,6 +1248,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472595982}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1472595987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472595982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8cc35bc6847d94aa05118689e5459c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sibling: {fileID: 1601024503}
+  screen: {fileID: 1472595985}
+  SiblingCam: {fileID: 1893969848}
+  nearClipOffset: 0.05
+  nearClipLimit: 0.2
 --- !u!1 &1580670576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1274,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1580670577}
-  - component: {fileID: 1580670578}
   - component: {fileID: 1580670579}
   m_Layer: 0
   m_Name: Portal
@@ -1206,20 +1298,6 @@ Transform:
   m_Father: {fileID: 1308764996}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1580670578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580670576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d8cc35bc6847d94aa05118689e5459c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sibling: {fileID: 1708283481}
-  screen: {fileID: 1580670579}
 --- !u!23 &1580670579
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1273,9 +1351,10 @@ GameObject:
   - component: {fileID: 1601024502}
   - component: {fileID: 1601024501}
   - component: {fileID: 1601024500}
+  - component: {fileID: 1601024503}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1302,7 +1381,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601024498}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1356,6 +1435,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601024498}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1601024503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601024498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8cc35bc6847d94aa05118689e5459c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sibling: {fileID: 1472595987}
+  screen: {fileID: 1601024501}
+  SiblingCam: {fileID: 282273032}
+  nearClipOffset: 0.05
+  nearClipLimit: 0.2
 --- !u!1 &1701629177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1557,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1708283480}
-  - component: {fileID: 1708283481}
   - component: {fileID: 1708283482}
   m_Layer: 0
   m_Name: Portal 2
@@ -1477,29 +1572,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708283479}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.34, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.5384041, z: -0, w: 0.84268683}
+  m_LocalPosition: {x: -2.0163536, y: 0, z: 3.0743933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1072952569}
   - {fileID: 1601024499}
   m_Father: {fileID: 1308764996}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1708283481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708283479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d8cc35bc6847d94aa05118689e5459c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sibling: {fileID: 1580670578}
-  screen: {fileID: 1708283482}
+  m_LocalEulerAnglesHint: {x: 0, y: 65.15, z: 0}
 --- !u!23 &1708283482
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1816,6 +1897,8 @@ GameObject:
   - component: {fileID: 2061917914}
   - component: {fileID: 2061917913}
   - component: {fileID: 2061917912}
+  - component: {fileID: 2061917915}
+  - component: {fileID: 2061917916}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1882,9 +1965,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061917911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.89, y: 2.19, z: -12.45}
+  m_LocalScale: {x: 1, y: 3.7574, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2061917915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061917911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb419f81515f214282b081b3939b87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2061917916
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061917911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
