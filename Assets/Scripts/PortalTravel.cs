@@ -18,25 +18,23 @@ public class PortalTravel : MonoBehaviour
         }
     }
     void OnTriggerEnter(Collider other) {
-        Debug.Log("entered");
         if (cooldown > 0 || in_trigger) {
             return;
         }
         Portal entered = other.gameObject.GetComponent<Portal>();
 
         //teleport to the exit of the other portal
-        var diff = entered.transform.localToWorldMatrix * transform.localToWorldMatrix;
-        Vector3 new_pos = diff.GetColumn(3);
-        new_pos += entered.Sibling.transform.position - entered.transform.position;
-
-        transform.SetPositionAndRotation(new_pos, transform.rotation);
+        //var diff = entered.transform.localToWorldMatrix * transform.localToWorldMatrix;
+        //Vector3 new_pos = diff.GetColumn(3);
+        //new_pos += entered.transform.position - entered.Sibling.transform.position;
+        Quaternion new_rot = Quaternion.Euler(entered.Sibling.transform.localEulerAngles - entered.transform.localEulerAngles);
+        transform.SetPositionAndRotation(entered.Sibling.transform.position, new_rot);
 
         cooldown = cooldown_max;
         in_trigger = true;
     }
 
     void OnTriggerExit(Collider other) {
-        Debug.Log("exited");
         in_trigger = false;
     }
 }
