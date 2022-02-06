@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/house 1/floor.blend.meta
 guid: 1f864f18b3005584591ba74d40da541e
+=======
+guid: 8603cb896b4f47c4bbeac9578d880e55
+>>>>>>> Stashed changes:Assets/test scene/test floor.blend.meta
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []

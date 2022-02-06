@@ -27,9 +27,15 @@ public class PortalTravel : MonoBehaviour
         //var diff = entered.transform.localToWorldMatrix * transform.localToWorldMatrix;
         //Vector3 new_pos = diff.GetColumn(3);
         //new_pos += entered.transform.position - entered.Sibling.transform.position;
-        Quaternion new_rot = Quaternion.Euler(entered.Sibling.transform.localEulerAngles - entered.transform.localEulerAngles);
-        new_rot = Quaternion.Euler(transform.localEulerAngles + new_rot.eulerAngles);
+        Quaternion diff = Quaternion.Euler(entered.Sibling.transform.localEulerAngles - entered.transform.localEulerAngles);
+        Quaternion new_rot = Quaternion.Euler(transform.localEulerAngles + diff.eulerAngles);
         transform.SetPositionAndRotation(entered.Sibling.transform.position, new_rot);
+
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = diff * rb.velocity;
+        }
 
         cooldown = cooldown_max;
         in_trigger = true;
