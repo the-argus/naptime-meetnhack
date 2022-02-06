@@ -51,9 +51,11 @@ public class Portal : MonoBehaviour {
     }
 
     public void Render() {
+        Debug.LogError($"Main Camera: {PlayerCam}\nPortalViewer: {SiblingCam}");
 
         // stop render if this object is not visible
         if (!Sibling.GetComponent<Renderer>().isVisible) {
+            Debug.LogError($"Skipped render of {this}");
             return;
         }
 
